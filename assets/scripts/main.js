@@ -12,7 +12,7 @@ them.onclick = () => {
 let btnUser = document.getElementById("btn_user");
 let inputUser = document.getElementById("input_user");
 let userInformation = document.getElementById("user_info");
-
+let ulRepo = document.getElementById("repos");
 function getData() {
   let userData = "";
   if (inputUser.value === "") {
@@ -35,7 +35,21 @@ function getData() {
           <span>Following: ${user.following}</span>
           </div>
           <h3>${user.location}</h3>
-        </div>`;
+        </div>
+          <ol id="repos-data"></ol>
+        
+        `;
+        fetch(`https://api.github.com/users/${inputUser.value}/repos`)
+          .then((res) => res.json())
+          .then((repostories) => {
+            let displayRepos = "";
+            for (let i = 0; i < repostories.length; i++) {
+              displayRepos += `
+              <li><span>${repostories[i].name}</span> <a href="${repostories[i].homepage}" target="_blank">View Project</a></li>
+              `;
+              document.getElementById("repos-data").innerHTML = displayRepos;
+            }
+          });
         userInformation.innerHTML = userData;
       });
   }
