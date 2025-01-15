@@ -9,31 +9,31 @@ them.onclick = () => {
   }
 };
 
-// let btnUser = document.getElementById("btn_user");
-// let inputUser = document.getElementById("input_user");
+let btnUser = document.getElementById("btn_user");
+let inputUser = document.getElementById("input_user");
 
-// function getData() {
-//   let userData = "";
-//   if (inputUser.value === "") {
-//     inputUser.style.border = "1px solid red";
-//     btnUser.style.backgroundColor = "red";
-//     document.getElementById("span").innerHTML = "Enter a Valid Username";
-//     span.style.color = "red";
-//   } else {
-//     fetch(`https://api.github.com/users/AbdelrahmanELsokary${inputUser.value}`)
-//       .then((res) => res.json())
-//       .then((user) => {
-//         console.log(`user`)
-//         document.getElementById("span").style.display = "none";
-//           console.log(user[i].name)
-//           userData += `
-//         <div class="user">
-//           <img src="${user[i].avatar_url}" alt="User Image">
-//         </div>`;
-//         document.getElementById("user_info").innerHTML = userData;
-//       });
-//   }
-// }
-// btnUser.onclick = () => {
-//   getData();
-// };
+function getData() {
+  let userData = "";
+  if (inputUser.value === "") {
+    inputUser.style.border = "1px solid red";
+    btnUser.style.backgroundColor = "red";
+    document.getElementById("span").innerHTML = "Enter a Valid Username";
+    span.style.color = "red";
+  } else {
+    fetch(`https://api.github.com/users/${inputUser.value}`)
+      .then((res) => res.json())
+      .then((user) => {
+        document.getElementById("span").style.display = "none";
+        console.log(user.name);
+        userData = `
+        <div class="user">
+        <img src="${user.avatar_url}">
+        <h1>${user.login}</h1>
+        </div>`;
+        document.getElementById("user_info").innerHTML = userData;
+      });
+  }
+}
+btnUser.onclick = () => {
+  getData();
+};
