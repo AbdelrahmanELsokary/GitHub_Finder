@@ -11,6 +11,7 @@ them.onclick = () => {
 
 let btnUser = document.getElementById("btn_user");
 let inputUser = document.getElementById("input_user");
+let userInformation = document.getElementById("user_info");
 
 function getData() {
   let userData = "";
@@ -24,13 +25,18 @@ function getData() {
       .then((res) => res.json())
       .then((user) => {
         document.getElementById("span").style.display = "none";
-        console.log(user.name);
         userData = `
         <div class="user">
         <img src="${user.avatar_url}">
         <h1>${user.login}</h1>
+          <a href="${user.html_url}" target="_blank" style="display: block;" >Github Account</a>
+          <span class="bio">${user.bio}</span>
+          <div class="follow"><span>Followers: ${user.followers}</span>
+          <span>Following: ${user.following}</span>
+          </div>
+          <h3>${user.location}</h3>
         </div>`;
-        document.getElementById("user_info").innerHTML = userData;
+        userInformation.innerHTML = userData;
       });
   }
 }

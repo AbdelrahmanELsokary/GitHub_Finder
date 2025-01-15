@@ -91,10 +91,43 @@ button {
 section .container .input_user button {
   cursor: pointer;
 }
-section .container span{
+section .container .not_found{
   display: block;
   font-size: 40px;
   color: var(--txt-color);
   font-weight: bold;
   padding-top: 40px;
+}
+section .container .user_info {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+}
+.user img{
+  width: 250px;
+  border-radius: 50%;
+}
+.user h1{  
+  color: var(--txt-color);
+  padding: 10px;
+}
+.user a {
+  font-size: 20px;
+}
+.user .bio {
+  display: block;
+  font-size: 20px;
+  padding: 10px;
+}
+.follow {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+.follow span{
+  background-color: var(--txt-color);
+  color: var(--bg);
+  border-radius: 10px;
+  letter-spacing: 0.5px;
+  padding: 10px;
 }
