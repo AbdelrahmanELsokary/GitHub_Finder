@@ -25,6 +25,7 @@
 :root {
   --txt-color: rgb(1, 1, 26);
   --bg: #89cff0;
+  --bg-input: rgba(17, 17, 193, 0.075);
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -35,29 +36,65 @@ body.dark-mode {
   color: var(--bg);
   transition: 0.5s;
 }
-body.dark-mode header .container a{
+body.dark-mode header .container a ,
+body.dark-mode .container button ,
+body.dark-mode .container span
+{
   color: var(--bg);
   transition: 0.5s;
 }
-a{
+body.dark-mode section .container input::placeholder{
+  color: var(--bg);
+  transition: 0.5s;
+}
+a {
   text-decoration: none;
 }
-header{
+header {
   padding: 30px 0;
 }
-header .container nav ul{
+header .container nav ul {
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-header .container  img{
+header .container img {
   width: 40px;
   cursor: pointer;
 }
-header .container nav ul li a{
+header .container nav ul li a {
   font-size: 26px;
   font-weight: bold;
   letter-spacing: 0.8px;
   color: var(--txt-color);
+}
+section .container {
+  text-align: center;
+  padding-top: 170px;
+}
+section .container .input_user {
+  display: flex;
+  gap: 10px;
+}
+section .container .input_user input {
+  flex: 1;
+}
+section .container .input_user input,
+button {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: var(--bg-input);
+  padding: 10px;
+}
+section .container .input_user button {
+  cursor: pointer;
+}
+section .container span{
+  display: block;
+  font-size: 40px;
+  color: var(--txt-color);
+  font-weight: bold;
+  padding-top: 40px;
 }
