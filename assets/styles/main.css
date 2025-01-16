@@ -125,6 +125,7 @@ section .container .user_info {
 .follow {
   display: flex;
   justify-content: space-around;
+  gap: 10px;
   padding: 10px;
 }
 .follow span {
@@ -150,11 +151,17 @@ body.dark-mode .repos_data li
   list-style-position: inside;
 }
 .repos_data li {
+  list-style-image: url(../icons/github.webp);
   background-color: var(--txt-color);
   color: var(--bg);
   border-radius: 10px;
   padding: 20px 0 10px 0;
   margin: 10px;
+}
+.repos_data li span{
+  display: block;
+  align-items: center;
+
 }
 .repos_data li a {
   display: inline-block;
