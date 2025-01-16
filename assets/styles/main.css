@@ -36,14 +36,15 @@ body.dark-mode {
   color: var(--bg);
   transition: 0.5s;
 }
-body.dark-mode header .container a ,
-body.dark-mode .container button ,
-body.dark-mode .container span
+body.dark-mode header .container a,
+body.dark-mode .container button,
+body.dark-mode .container span , 
+body.dark-mode .container h1
 {
   color: var(--bg);
   transition: 0.5s;
 }
-body.dark-mode section .container input::placeholder{
+body.dark-mode section .container input::placeholder {
   color: var(--bg);
   transition: 0.5s;
 }
@@ -91,7 +92,7 @@ button {
 section .container .input_user button {
   cursor: pointer;
 }
-section .container .not_found{
+section .container .not_found {
   display: block;
   font-size: 40px;
   color: var(--txt-color);
@@ -100,14 +101,16 @@ section .container .not_found{
 }
 section .container .user_info {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
   padding-top: 40px;
 }
-.user img{
+.user img {
   width: 250px;
   border-radius: 50%;
 }
-.user h1{  
+.user h1 {
   color: var(--txt-color);
   padding: 10px;
 }
@@ -124,10 +127,47 @@ section .container .user_info {
   justify-content: space-around;
   padding: 10px;
 }
-.follow span{
+.follow span {
   background-color: var(--txt-color);
   color: var(--bg);
   border-radius: 10px;
   letter-spacing: 0.5px;
   padding: 10px;
+}
+body.dark-mode .follow span ,
+body.dark-mode .repos_data li span ,
+body.dark-mode .repos_data li
+{
+  background-color: var(--bg);
+  color: var(--txt-color);
+  transition: 0.5s;
+}
+.repos_data {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  flex: 1;
+  flex-wrap: wrap;
+  list-style-position: inside;
+}
+.repos_data li {
+  background-color: var(--txt-color);
+  color: var(--bg);
+  border-radius: 10px;
+  padding: 20px 0 10px 0;
+  margin: 10px;
+}
+.repos_data li a {
+  display: inline-block;
+  color: var(--txt-color);
+  background-color: var(--bg);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 7px 15px;
+  margin: 15px 10px;
+}
+body.dark-mode .repos_data li a {
+  background-color: var(--txt-color);
+  color: var(--bg);
+  transition: 0.5s;
 }

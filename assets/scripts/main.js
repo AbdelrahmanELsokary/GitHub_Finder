@@ -12,7 +12,6 @@ them.onclick = () => {
 let btnUser = document.getElementById("btn_user");
 let inputUser = document.getElementById("input_user");
 let userInformation = document.getElementById("user_info");
-let ulRepo = document.getElementById("repos");
 function getData() {
   let userData = "";
   if (inputUser.value === "") {
@@ -36,8 +35,7 @@ function getData() {
           </div>
           <h3>${user.location}</h3>
         </div>
-          <ol id="repos-data"></ol>
-        
+          <ol id="repos_data" class="repos_data"></ol>
         `;
         fetch(`https://api.github.com/users/${inputUser.value}/repos`)
           .then((res) => res.json())
@@ -45,9 +43,13 @@ function getData() {
             let displayRepos = "";
             for (let i = 0; i < repostories.length; i++) {
               displayRepos += `
-              <li><span>${repostories[i].name}</span> <a href="${repostories[i].homepage}" target="_blank">View Project</a></li>
+              <li>
+              <span>${repostories[i].name}</span>
+                <br> 
+                <a href="${repostories[i].homepage}" target="_blank">View Project</a> 
+                <a href="${repostories[i].html_url}" target="_blank">View Code</a></li>
               `;
-              document.getElementById("repos-data").innerHTML = displayRepos;
+              document.getElementById("repos_data").innerHTML = displayRepos;
             }
           });
         userInformation.innerHTML = userData;
