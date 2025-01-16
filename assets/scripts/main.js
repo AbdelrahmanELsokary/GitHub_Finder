@@ -1,29 +1,29 @@
-let them = document.getElementById("them");
+let them = document.getElementById('them');
 them.onclick = () => {
-  if (document.body.classList.contains("dark-mode")) {
-    them.src = "assets/icons/dark.webp";
-    document.body.classList.remove("dark-mode");
+  if (document.body.classList.contains('dark-mode')) {
+    them.src = 'assets/icons/dark.webp';
+    document.body.classList.remove('dark-mode');
   } else {
-    document.body.classList.add("dark-mode");
-    them.src = "assets/icons/light.webp";
+    document.body.classList.add('dark-mode');
+    them.src = 'assets/icons/light.webp';
   }
 };
 
-let btnUser = document.getElementById("btn_user");
-let inputUser = document.getElementById("input_user");
-let userInformation = document.getElementById("user_info");
+let btnUser = document.getElementById('btn_user');
+let inputUser = document.getElementById('input_user');
+let userInformation = document.getElementById('user_info');
 function getData() {
-  let userData = "";
-  if (inputUser.value === "") {
-    inputUser.style.border = "1px solid red";
-    btnUser.style.backgroundColor = "red";
-    document.getElementById("span").innerHTML = "Enter a Valid Username";
-    span.style.color = "red";
+  let userData = '';
+  if (inputUser.value === '') {
+    inputUser.style.border = '1px solid red';
+    btnUser.style.backgroundColor = 'red';
+    document.getElementById('span').innerHTML = 'Enter a Valid Username';
+    span.style.color = 'red';
   } else {
     fetch(`https://api.github.com/users/${inputUser.value}`)
       .then((res) => res.json())
       .then((user) => {
-        document.getElementById("span").style.display = "none";
+        document.getElementById('span').style.display = 'none';
         userData = `
         <div class="user">
         <img src="${user.avatar_url}">
@@ -40,7 +40,7 @@ function getData() {
         fetch(`https://api.github.com/users/${inputUser.value}/repos`)
           .then((res) => res.json())
           .then((repostories) => {
-            let displayRepos = "";
+            let displayRepos = '';
             for (let i = 0; i < repostories.length; i++) {
               displayRepos += `
               <li>
@@ -49,10 +49,11 @@ function getData() {
                 <a href="${repostories[i].homepage}" target="_blank">View Project</a> 
                 <a href="${repostories[i].html_url}" target="_blank">View Code</a></li>
               `;
-              document.getElementById("repos_data").innerHTML = displayRepos;
+              document.getElementById('repos_data').innerHTML = displayRepos;
             }
           });
         userInformation.innerHTML = userData;
+        inputUser.value = '';
       });
   }
 }
